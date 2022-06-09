@@ -1,11 +1,7 @@
-.navbar {
-  color: white;
-}
-
 .navbar-lewagon {
   justify-content: space-between;
   background: $blood;
-  a {
+  a, li {
     color: white;
   }
 }
