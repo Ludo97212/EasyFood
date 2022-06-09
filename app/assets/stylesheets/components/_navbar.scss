@@ -1,6 +1,13 @@
+.navbar {
+  color: white;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $blood;
+  a {
+    color: white;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {

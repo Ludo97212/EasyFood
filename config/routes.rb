@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'foods#homepage'
 
   resources :flats do
     resources :orders, only: [:new, :create]
@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   resources :orders, except: [:new, :create]
   resources :ratings, except: [:new, :create]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
