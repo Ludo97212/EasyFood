@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :flats do
-    resources :bookins, only: [:new, :create]
+    resources :orders, only: [:new, :create]
     resources :ratings, only: [:new, :create, :update]
   end
+
+  resources :orders, except: [:new, :create]
+  resources :ratings, except: [:new, :create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
