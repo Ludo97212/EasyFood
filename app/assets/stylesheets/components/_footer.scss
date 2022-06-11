@@ -1,0 +1,12 @@
+.footer {
+  background-color: $blood;
+  padding: 15px 25px 15px 25px;
+  position: absolute;
+    bottom: 0;
+    width: 100%;
+  a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}

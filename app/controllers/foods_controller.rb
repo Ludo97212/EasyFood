@@ -1,30 +1,36 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: %i[show edit update destroy]
   def homepage
-    @last_foods = Food.last(10)
+    @best_foods = Food.last(12)
   end
 
   def index
-    @foods = Food.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR description ILIKE :query"
+      @foods = Food.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
+      flash[:notice] = "#{@foods.size} résultat(s)"
+    else
+      @foods = Food.all.order(:created_at)
+    end
   end
 
   def show
   end
 
-  def new
-  end
+  # def new
+  # end
 
-  def create
-  end
+  # def create
+  # end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-  end
+  # def update
+  # end
 
-  def delete
-  end
+  # def delete
+  # end
 
    private
 

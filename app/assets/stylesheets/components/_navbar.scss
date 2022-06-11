@@ -1,7 +1,13 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $blood;
-  a, li {
+  img {
+    border-radius: 50%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  a, li, h1 {
     color: white;
   }
 }

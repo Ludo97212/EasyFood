@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'foods#homepage'
+  resources :pages
+  get "contacts", to: "pages#contacts"
 
   resources :flats do
     resources :orders, only: [:new, :create]
