@@ -9,6 +9,11 @@
   <% end %>
 </div>
 
+<h1>EasyFood</h1>
+<h2>Découvrez, créez et partagez vos recettes aux 4 coins du monde ........</h2>
+
+<%= link_to "Tous les plats", foods_path %>
+
 <div class="display-foods">
   <% @best_foods.each do |food| %>
     <%= food.name %>

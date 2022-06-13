@@ -2,6 +2,7 @@ class FoodsController < ApplicationController
   before_action :set_food, only: %i[show edit update destroy]
   def homepage
     @best_foods = Food.last(12)
+    # @best_foods = Food.joins(:ratings).order_by(score: DESC)
   end
 
   def index
