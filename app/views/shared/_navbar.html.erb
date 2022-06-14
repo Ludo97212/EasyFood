@@ -17,8 +17,8 @@
           <%= image_tag "icon gold-white.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <% if user_signed_in? %>
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Mes recettes", "#", class: "dropdown-item" %>
+              <%= link_to "Mes favoris", "#", class: "dropdown-item" %>
               <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             <% else %>
               <%= link_to "Connexion", new_user_session_path, class: "nav-link" %>
