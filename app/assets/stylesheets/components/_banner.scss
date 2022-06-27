@@ -4,6 +4,7 @@
   background-image: linear-gradient(rgba(120, 120, 120, 0.3), rgba(120, 120, 120, 0.3)), url('banner-food.jpg');
   padding: 30px 10px 30px 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 350px;
