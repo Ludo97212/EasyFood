@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :pages
   get "contacts", to: "pages#contacts"
 
+  resources :categories, only: [:index, :show]
   resources :foods do
     resources :ratings, only: [:new, :create, :update]
   end

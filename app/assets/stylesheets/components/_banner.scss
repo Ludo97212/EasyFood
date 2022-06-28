@@ -1,7 +1,7 @@
 .banner {
   // background-image: url('food-logo.png');
-  background-size: contain;
-  background-image: linear-gradient(rgba(120, 120, 120, 0.3), rgba(120, 120, 120, 0.3)), url('banner-food.jpg');
+  background-size: cover;
+  background-image: linear-gradient(rgba(120, 120, 120, 0.2), rgba(120, 120, 120, 0.2)), url('Banner world-in-food.jpg');
   padding: 30px 10px 30px 10px;
   display: flex;
   flex-direction: column;

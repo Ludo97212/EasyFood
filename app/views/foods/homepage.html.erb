@@ -16,15 +16,21 @@
 <div class="presentation">
   <h3>Découvrez, créez et partagez vos recettes des 4 coins du monde en toute simplicité ...</h3>
 
+  <div class="dropdown">
+    <button class="dropbtn">Catégorie de recettes <i class="fa-solid fa-arrow-down-short-wide"></i></button>
+    <div class="dropdown-content">
+      <% @categories.each do |category| %>
+        <%= link_to category.name, category_path(category) %>
+      <% end %>
+    </div>
+  </div>
 
-
-  <%= link_to "Tous les plats", foods_path %>
 </div>
 
 <div class="display-foods">
   <% @best_foods.each do |food| %>
     <%= food.name %>
-    <%= food.difficulty %>
+    <%#= food.rating %>
   <% end %>
 </div>
 
