@@ -28,21 +28,32 @@
 </div>
 
 <div class="display-foods">
-  <% @best_foods.each do |food| %>
-    <%= food.name %>
-    <%#= food.rating %>
-  <% end %>
+  <div class="grid-foods">
+    <% @best_foods.each do |food| %>
+      <div class="card-food">
+        <%= image_tag("Steak.jpg") %>
+        <%# cl_image_tag(food.photo.key) %>
+        <div class="card-food-infos">
+          <h3><%= link_to food.name, food_path(food) %></h3>
+          <%#= LATER, ADD RATING ON BOTTOM-RIGHT WITH STARS %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
 <script>
   var options = {
-  strings: ["L'appli de recettes la <strong>plus utilisée</strong> dans le monde. ^2000", "La <strong>meilleure </strong> communauté. ^2000", "Rejoins nous dès maintenant. ^2000"],
+  strings: ["L'appli de recettes la <strong>plus utilisée</strong> dans le monde. ^2000",
+  "La <strong>meilleure </strong> communauté. ^2000",
+  "Rejoins nous dès maintenant. ^2000"],
   // ^1000 = 1kms = 1sc
   typeSpeed: 50,
   backspeed: 50,
   startDelay: 100,
-  loop: true
+  loop: true,
+  loopCount: Infinity
   };
   var typed = new Typed('.element', options);
 </script>
