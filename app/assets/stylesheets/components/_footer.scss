@@ -1,8 +1,10 @@
 .footer {
   background-color: $blood;
-  margin-top: 50px;
-  padding: 10px 35px 10px 35px;
-  position: absolute;
+  // margin-top: 50px;
+  padding: 20px 50px 20px 50px;
+  // position: relative !important;
+  overflow: hidden;
+  position: fixed;
   bottom: 0;
   width: 100vw;
   display: flex;

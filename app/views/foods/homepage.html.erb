@@ -1,4 +1,8 @@
 <div class="banner">
+  <%# Script JS TYped %>
+  <h2><span class="element"></span></h2>
+  <%# END %>
+
   <%= simple_form_for :search, url: root_path, method: :get do |f| %>
     <div class="search-form-control form-group">
       <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Pizza, Burger..." />
@@ -10,14 +14,46 @@
 </div>
 
 <div class="presentation">
-  <h1>EasyFood</h1>
-  <h2>Découvrez, créez et partagez vos recettes des 4 coins du monde ........</h2>
-  <%= link_to "Tous les plats", foods_path %>
+  <h3>Découvrez, créez et partagez vos recettes des 4 coins du monde en toute simplicité ...</h3>
+
+  <div class="dropdown">
+    <button class="dropbtn">Catégorie de recettes <i class="fa-solid fa-arrow-down-short-wide"></i></button>
+    <div class="dropdown-content">
+      <% @categories.each do |category| %>
+        <%= link_to category.name, category_path(category) %>
+      <% end %>
+    </div>
+  </div>
+
 </div>
 
 <div class="display-foods">
-  <% @best_foods.each do |food| %>
-    <%= food.name %>
-    <%= food.difficulty %>
-  <% end %>
+  <div class="grid-foods">
+    <% @best_foods.each do |food| %>
+      <div class="card-food">
+        <%= image_tag("Steak.jpg") %>
+        <%# cl_image_tag(food.photo.key) %>
+        <div class="card-food-infos">
+          <h3><%= link_to food.name, food_path(food) %></h3>
+          <%#= LATER, ADD RATING ON BOTTOM-RIGHT WITH STARS %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
+
+
+<script>
+  var options = {
+  strings: ["L'appli de recettes la <strong>plus utilisée</strong> dans le monde. ^2000",
+  "La <strong>meilleure </strong> communauté. ^2000",
+  "Rejoins nous dès maintenant. ^2000"],
+  // ^1000 = 1kms = 1sc
+  typeSpeed: 50,
+  backspeed: 50,
+  startDelay: 100,
+  loop: true,
+  loopCount: Infinity
+  };
+  var typed = new Typed('.element', options);
+</script>

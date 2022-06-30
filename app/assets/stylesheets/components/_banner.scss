@@ -1,12 +1,26 @@
 .banner {
-  // background-image: url('food-logo.png');
-  background-size: contain;
-  background-image: linear-gradient(rgba(120, 120, 120, 0.3), rgba(120, 120, 120, 0.3)), url('banner-food.jpg');
+  background-size: cover;
+  background-image: linear-gradient(rgba(120, 120, 120, 0.2), rgba(120, 120, 120, 0.2)), url('Banner world-in-food.jpg');
   padding: 30px 10px 30px 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 350px;
+  height: 450px;
+  h2 {
+    color: white;
+    font-weight: bold;
+  }
+}
+// ------------------------
+
+.banner-show {
+  background-size: cover;
+  background-image: linear-gradient(rgba(120, 120, 120, 0.2), rgba(120, 120, 120, 0.2)), url('Banner-ingredients2.jpg');
+  width: 100%;
+  padding: 60px 0px;
+  text-align: center;
+  margin-bottom: 50px;
   h2 {
     color: white;
     font-weight: bold;

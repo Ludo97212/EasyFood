@@ -1,0 +1,23 @@
+<div class="banner-show">
+  <h2>Les <%= @category.name %></h2>
+</div>
+
+<div class="most-rated-foods">
+  <h2>Quelques recettes les mieux notées</h2>
+  <div class="grid-foods">
+    <% @category.foods.each do |food| %>
+      <div class="card-food">
+        <%= image_tag("Steak.jpg") %>
+        <%# cl_image_tag(food.photo.key) %>
+        <div class="card-food-infos">
+          <h3><%= link_to food.name, food_path(food) %></h3>
+          <%#= LATER, ADD RATING ON BOTTOM-RIGHT WITH STARS %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div>
+  <h2>Découvrez toutes les recttes présentes sur notre site</h2>
+</div>
