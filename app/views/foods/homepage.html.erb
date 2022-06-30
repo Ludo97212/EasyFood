@@ -1,7 +1,6 @@
 <div class="banner">
-  <%# Script JS TYped %>
+  <!-- Textes Défillants - Script JS TYped -->
   <h2><span class="element"></span></h2>
-  <%# END %>
 
   <%= simple_form_for :search, url: root_path, method: :get do |f| %>
     <div class="search-form-control form-group">
@@ -11,11 +10,15 @@
       </button>
     </div>
   <% end %>
+
+  <br>
+  <br>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+    Les Catégories
+  </button>
 </div>
 
 <div class="presentation">
-  <h3>Découvrez, créez et partagez vos recettes des 4 coins du monde en toute simplicité ...</h3>
-
   <div class="dropdown">
     <button class="dropbtn">Catégorie de recettes <i class="fa-solid fa-arrow-down-short-wide"></i></button>
     <div class="dropdown-content">
@@ -24,15 +27,25 @@
       <% end %>
     </div>
   </div>
-
+  <br>
+  <br>
+  <div class="bar-category">
+    <% @categories.each do |category| %>
+      <%= link_to category.name, category_path(category) %>
+    <% end %>
+  </div>
 </div>
 
 <div class="display-foods">
+  <h2>Découvrez nos quelques recettes les mieux notées</h2>
   <div class="grid-foods">
     <% @best_foods.each do |food| %>
       <div class="card-food">
-        <%= image_tag("Steak.jpg") %>
-        <%# cl_image_tag(food.photo.key) %>
+        <% if food.photo.attached? %>
+          <%= link_to cl_image_tag(food.photo.key), food_path(food) %>
+        <% else %>
+          <%= link_to image_tag("default-img.png"), food_path(food) %>
+        <% end %>
         <div class="card-food-infos">
           <h3><%= link_to food.name, food_path(food) %></h3>
           <%#= LATER, ADD RATING ON BOTTOM-RIGHT WITH STARS %>
@@ -42,11 +55,38 @@
   </div>
 </div>
 
+ <!-- ADDITIONNAL CONTENT -->
+
+ <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Vous cherchez une recette?<br>
+          Essayez la recherche par catégorie</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <% @categories.each do |category| %>
+          <%= link_to category.name, category_path(category) %>
+        <% end %>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!-- END Modal -->
 
 <script>
   var options = {
   strings: ["L'appli de recettes la <strong>plus utilisée</strong> dans le monde. ^2000",
-  "La <strong>meilleure </strong> communauté. ^2000",
+  "Découvrez, créez et partagez vos recettes des 4 coins du monde en toute simplicité. ^2000",
+  "Une communauté <strong>réactive</strong>. ^2000",
   "Rejoins nous dès maintenant. ^2000"],
   // ^1000 = 1kms = 1sc
   typeSpeed: 50,

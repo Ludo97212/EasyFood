@@ -23,11 +23,24 @@
     border: 2px $blood solid;
   }
 }
-
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
-
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+// ---------------------------
+
+.bar-category {
+  padding: 5px 25px;
+  background-color: $gold;
+  padding: 10px 25px;
+  margin-bottom: 40px;
+  a {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 10px;
+  }
 }

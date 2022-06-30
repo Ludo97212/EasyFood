@@ -3,12 +3,15 @@
 </div>
 
 <div class="most-rated-foods">
-  <h2>Quelques recettes les mieux notées</h2>
+  <h2>Les recettes <%= @category.name %> les mieux notées</h2>
   <div class="grid-foods">
     <% @category.foods.each do |food| %>
       <div class="card-food">
-        <%= image_tag("Steak.jpg") %>
-        <%# cl_image_tag(food.photo.key) %>
+        <% if food.photo.attached? %>
+          <%= link_to cl_image_tag(food.photo.key), food_path(food) %>
+        <% else %>
+          <%= link_to image_tag("default-img.png"), food_path(food) %>
+        <% end %>
         <div class="card-food-infos">
           <h3><%= link_to food.name, food_path(food) %></h3>
           <%#= LATER, ADD RATING ON BOTTOM-RIGHT WITH STARS %>
@@ -19,5 +22,6 @@
 </div>
 
 <div>
-  <h2>Découvrez toutes les recttes présentes sur notre site</h2>
+  SEARCH_FORM LATER
+  <h2>Découvrez toutes les recettes présentes sur notre site</h2>
 </div>

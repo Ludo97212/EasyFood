@@ -1,7 +1,12 @@
-<h2><%= @food.name %></h2>
-<%# if @food.photo.key.attached? %>
-  <%#= @food.photo.key %>
-<%# else %>
-  <%#= photo defaut %>
-<%# end %>
-<p><%= @food.recipe %></p>
+<div class="details">
+  <h2><%= @food.name %></h2>
+
+  <% if @food.photo.attached? %>
+    <%= cl_image_tag(@food.photo.key) %>
+  <% else %>
+    <%= image_tag("default-img.png") %>
+  <% end %>
+
+  <h3>Recette</h3>
+  <p><%= @food.recipe %></p>
+</div>

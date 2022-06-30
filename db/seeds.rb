@@ -58,9 +58,26 @@ RECIPE = "INGRÉDIENTS / 6 PERS : <br>
 
 puts "Create foods"
 
-Food.create!(name: "Pizza Lardons", recipe: RECIPE, category_id: Category.where(name: 'Pizzas').ids.first, user_id: User.first.id)
-Food.create!(name: "CheeseBurger", recipe: RECIPE, category_id: Category.where(name: 'Fast-Foods').ids.first, user_id: User.first.id)
-Food.create!(name: "Hot-Dog", recipe: RECIPE, category_id: Category.where(name: 'Fast-Foods').ids.first, user_id: User.first.id)
-Food.create!(name: "Crêpe Suzette", recipe: RECIPE, category_id: Category.where(name: 'Pâtisseries & Viennoiseries').ids.first, user_id: User.first.id)
-Food.create!(name: "Big Steak Fumé au charbon", recipe: RECIPE, category_id: Category.where(name: 'Viandes').ids.first, user_id: User.first.id)
-Food.create!(name: "Crunchy aux fruits", recipe: RECIPE, category_id: Category.where(name: 'Desserts').ids.first, user_id: User.first.id)
+pizza = Food.create!(name: "Pizza Lardons", recipe: RECIPE, category_id: Category.where(name: 'Pizzas').ids.first, user_id: User.first.id)
+file = File.open('app/assets/images/Pizza 2.jpg')
+pizza.photo.attach(io: file, filename: 'Pizza 2.jpg', content_type: 'image/jpg')
+
+burger = Food.create!(name: "CheeseBurger", recipe: RECIPE, category_id: Category.where(name: 'Fast-Foods').ids.first, user_id: User.first.id)
+file = File.open('app/assets/images/CheeseBurger.jpg')
+burger.photo.attach(io: file, filename: 'CheeseBurger.jpg', content_type: 'image/jpg')
+
+hot_dog = Food.create!(name: "Hot-Dog", recipe: RECIPE, category_id: Category.where(name: 'Fast-Foods').ids.first, user_id: User.first.id)
+file = File.open('app/assets/images/Hot-dog.jpg')
+hot_dog.photo.attach(io: file, filename: 'Hot-dog.jpg', content_type: 'image/jpg')
+
+crepe = Food.create!(name: "Crêpe Suzette", recipe: RECIPE, category_id: Category.where(name: 'Pâtisseries & Viennoiseries').ids.first, user_id: User.first.id)
+file = File.open('app/assets/images/Crepe.jpg')
+crepe.photo.attach(io: file, filename: 'Crepe.jpg', content_type: 'image/jpg')
+
+steak = Food.create!(name: "Big Steak Fumé au charbon", recipe: RECIPE, category_id: Category.where(name: 'Viandes').ids.first, user_id: User.first.id)
+file = File.open('app/assets/images/Steak.jpg')
+steak.photo.attach(io: file, filename: 'Steak.jpg', content_type: 'image/jpg')
+
+crunchy = Food.create!(name: "Crunchy aux fruits", recipe: RECIPE, category_id: Category.where(name: 'Desserts').ids.first, user_id: User.first.id)
+file = File.open('app/assets/images/Crunchy.jpg')
+crunchy.photo.attach(io: file, filename: 'Crunchy.jpg', content_type: 'image/jpg')

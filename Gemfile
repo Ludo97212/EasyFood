@@ -5,6 +5,7 @@ ruby '2.7.4'
 
 # ADDITIONALS
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'cloudinary', '~> 1.23.0'
 # ---------------
 
 

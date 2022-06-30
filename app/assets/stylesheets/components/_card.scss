@@ -1,7 +1,7 @@
 .card-food {
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  width: 350px;
+  width: 300px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   img {
@@ -13,7 +13,7 @@
   }
   a {
     text-shadow: -1px 0 rgb(223, 120, 35), 0 1px rgb(223, 120, 35), 1px 0 rgb(223, 120, 35), 0 -1px rgb(223, 120, 35);
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     margin: 0;
     color:$gold;
