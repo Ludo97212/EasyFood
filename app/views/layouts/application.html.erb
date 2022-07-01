@@ -20,6 +20,9 @@
     <div class="container">
       <%= render 'shared/flashes' %>
       <%= yield %>
+      <% flash.each do |key, message| %>
+        <p class="alert alert-<%= key %>"><%= message %></p>
+      <% end %>
     </div>
 
     <%= render 'shared/footer' %>

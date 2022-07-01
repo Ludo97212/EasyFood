@@ -10,15 +10,22 @@
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     object-fit: cover;
+    &:hover {
+      opacity: 0.8;
+    }
   }
   a {
-    text-shadow: -1px 0 rgb(223, 120, 35), 0 1px rgb(223, 120, 35), 1px 0 rgb(223, 120, 35), 0 -1px rgb(223, 120, 35);
+    text-shadow: -1px 0 rgb(216, 158, 43), 0 1px rgb(216, 158, 43), 1px 0 rgb(216, 158, 43), 0 -1px rgb(216, 158, 43);
     font-size: 20px;
     font-weight: bold;
     margin: 0;
     color:$gold;
     text-align: center;
     text-decoration: none;
+    &:hover {
+      color: $blood;
+      text-shadow: -1px 0 rgb(222, 12, 12), 0 1px rgb(222, 12, 12), 1px 0 rgb(222, 12, 12), 0 -1px rgb(222, 12, 12);
+    }
   }
   p {
     font-size: 12px;

@@ -24,4 +24,17 @@
 <div>
   SEARCH_FORM LATER
   <h2>Découvrez toutes les recettes présentes sur notre site</h2>
+    <% @cat_foods.each do |food| %>
+      <div class="card-food">
+        <% if food.photo.attached? %>
+          <%= link_to cl_image_tag(food.photo.key), food_path(food) %>
+        <% else %>
+          <%= link_to image_tag("default-img.png"), food_path(food) %>
+        <% end %>
+        <div class="card-food-infos">
+          <h3><%= link_to food.name, food_path(food) %></h3>
+          <%#= LATER, ADD RATING ON BOTTOM-RIGHT WITH STARS %>
+        </div>
+      </div>
+    <% end %>
 </div>

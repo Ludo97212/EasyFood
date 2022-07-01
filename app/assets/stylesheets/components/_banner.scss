@@ -1,12 +1,12 @@
 .banner {
   background-size: cover;
   background-image: linear-gradient(rgba(120, 120, 120, 0.2), rgba(120, 120, 120, 0.2)), url('Banner world-in-food.jpg');
-  padding: 30px 10px 30px 10px;
+  padding: 30px 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 450px;
+  height: 400px;
   h2 {
     color: white;
     font-weight: bold;

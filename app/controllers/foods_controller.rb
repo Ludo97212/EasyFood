@@ -18,6 +18,17 @@ class FoodsController < ApplicationController
   end
 
   def show
+    set_food
+    # create a rating on this show
+    @rating = Rating.new
+    @ratings = @food.ratings
+    # ------------AVG SCORE-------------------------------
+    @x = 0.0
+    @food.ratings.each do |rating|
+      @x += rating.score
+    end
+    @y = @food.ratings.count
+    @food.avg_score = @x / @y
   end
 
   # def new
@@ -42,6 +53,6 @@ class FoodsController < ApplicationController
   end
 
   def food_params
-    params.require(:food).permit(:name, :price, :description, :user_id, :photo)
+    params.require(:food).permit(:name, :recipe, :user_id, :photo)
   end
 end

@@ -1,5 +1,8 @@
 <div class="details">
   <h2><%= @food.name %></h2>
+  <%# TEST MOYENNE POUR LA NOTE %>
+  <%= @food.avg_score %>
+  <%=  %>
 
   <% if @food.photo.attached? %>
     <%= cl_image_tag(@food.photo.key) %>
@@ -9,4 +12,17 @@
 
   <h3>Recette</h3>
   <p><%= @food.recipe %></p>
+
+  <div class="new-rating">
+    <%= simple_form_for [@food, @rating] do |f| %>
+      <%#= f.input :score, as: :radio_buttons,
+        collection: [['Good', '1', { class: "one-star" }],
+        ['Very Good', '2', { class: "two-stars" }],
+        ["Excellent", 3, { class:"three-stars" } ]] %>
+      <%= f.input :score, as: :float, label: "Votre note de 0 à 5", step: "0.5", html5: true %>
+      <%= f.input :comment, label: "Donnez votre avis", html5: true %>
+      <%#= f.input :comment, label: "Votre avis", as: :rich_text_area, html5: true %>
+      <%= f.submit "Publier", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
