@@ -3,6 +3,7 @@ class FoodsController < ApplicationController
 
   def homepage
     @best_foods = Food.last(12)
+    @foods = Food.all
     # @best_foods = Food.joins(:ratings).order_by(score: DESC).limit(6)
     @categories = Category.all
   end
@@ -21,14 +22,10 @@ class FoodsController < ApplicationController
     set_food
     # create a rating on this show
     @rating = Rating.new
-    @ratings = @food.ratings
-    # ------------AVG SCORE-------------------------------
-    @x = 0.0
-    @food.ratings.each do |rating|
-      @x += rating.score
-    end
-    @y = @food.ratings.count
-    @food.avg_score = @x / @y
+    @f_ratings = @food.ratings
+    # ------------AVG SCORE------------------------------- #
+    # Round(1) == Garder 1 chifffre apres la virgule
+    @avg_score = @f_ratings.average(:score).to_f.round(1)
   end
 
   # def new

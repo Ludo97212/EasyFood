@@ -23,8 +23,8 @@
     text-align: center;
     text-decoration: none;
     &:hover {
-      color: $blood;
-      text-shadow: -1px 0 rgb(222, 12, 12), 0 1px rgb(222, 12, 12), 1px 0 rgb(222, 12, 12), 0 -1px rgb(222, 12, 12);
+      color: rgb(216, 158, 43);
+      text-shadow: -1px 0 rgb(231, 164, 62), 0 1px rgb(231, 164, 62), 1px 0 rgb(231, 164, 62), 0 -1px rgb(231, 164, 62);
     }
   }
   p {
@@ -34,10 +34,48 @@
   }
 }
 
-
 .card-food .card-food-infos {
   padding: 10px;
   text-align: center;
   align-items: flex-end;
   position: relative;
+}
+
+// ------------------------------------
+
+.card-food-rating {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+  a {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+    p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+}
+
+.card-food-rating .card-food-rating-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-food-rating-infos .card-food-rating-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }

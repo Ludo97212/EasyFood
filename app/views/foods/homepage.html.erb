@@ -44,16 +44,20 @@
   </div>
 </div>
 
-<!--A SUPPRIMER PLUS TARD-->
-<div class="dropdown">
-  <button class="dropbtn">Catégorie de recettes <i class="fa-solid fa-arrow-down-short-wide"></i></button>
-  <div class="dropdown-content">
-    <% @categories.each do |category| %>
-      <%= link_to category.name, category_path(category) %>
-    <% end %>
+  <div class="grid-foods">
+    <div class="card-food-rating">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-food-rating-infos">
+        <div>
+          <h2>Title here</h2>
+          <p>Short description here!</p>
+        </div>
+        <h2 class="card-food-rating-pricing">£99.99</h2>
+      </div>
+    </div>
   </div>
-</div>
 
+<% @foods.first.ratings.average(:score).to_f.round(1) %>
  <!-- ADDITIONNAL CONTENT -->
 
  <!-- Modal -->
