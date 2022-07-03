@@ -2,10 +2,12 @@ class FoodsController < ApplicationController
   before_action :set_food, only: %i[show edit update destroy]
 
   def homepage
-    @best_foods = Food.last(12)
+    @best_foods = Food.first(12)
     @foods = Food.all
-    # @best_foods = Food.joins(:ratings).order_by(score: DESC).limit(6)
     @categories = Category.all
+    # TEST BEST_FOODS
+    # @best_foods = Food.joins(:ratings).order_by(average(score: DESC)).first(8)
+    # @best_foods = Food.ratings.average(:score).order_by(:desc).first(8)
   end
 
   def index
@@ -28,20 +30,22 @@ class FoodsController < ApplicationController
     @avg_score = @f_ratings.average(:score).to_f.round(1)
   end
 
-  # def new
-  # end
+  def new
+    @food = Food.new
+  end
 
-  # def create
-  # end
+  def create
+    @food = Food.new(food_params)
+  end
 
-  # def edit
-  # end
+  def edit
+  end
 
-  # def update
-  # end
+  def update
+  end
 
-  # def delete
-  # end
+  def delete
+  end
 
    private
 

@@ -1,7 +1,6 @@
 <div class="details">
 
   <h2><%= @food.name %></h2>
-  <%= @avg_score %>
 
   <% if @food.photo.attached? %>
     <%= cl_image_tag(@food.photo.key) %>
@@ -25,8 +24,21 @@
     <% end %>
   </div>
 
+  <!-- ADDITIONNAL CONTENT -->
   <div class="display-ratings">
     <h2>Note : <%= @avg_score %></h2>
+    <% @food.ratings.each do |rating| %>
+      <div class="card">
+        <span>
+          <i class="fas fa-quote-left" aria-hidden="true"></i>
+          <%= rating.comment %>
+          <i class="fas fa-quote-right" aria-hidden="true"></i>
+        </span>
+        [<%= rating.score  %>/5]
+        <%= rating.user.email %>
+      </div>
+    <% end %>
+
 
   </div>
 </div>
