@@ -37,7 +37,7 @@
         <% end %>
         <div class="card-food-infos">
           <h3><%= link_to food.name, food_path(food) %></h3>
-          <p><%= food.ratings.average(:score).to_f.round(1) %></p>
+          <p><%#= food.ratings.average(:score).to_f.round(1) %></p>
           <%#= LATER, ADD RATING ON BOTTOM-RIGHT WITH STARS %>
         </div>
       </div>

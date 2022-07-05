@@ -43,3 +43,43 @@
 
 
 </div>
+
+<button type="button" class="btn-modal-new-rating" data-bs-toggle="modal" data-bs-target="#myModal">
+  Noter cette recette
+</button>
+
+ <!-- Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Ajoutez un commentaire et une note à cette recette</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="new-rating">
+            <%= simple_form_for [@food, @rating] do |f| %>
+              <%= f.input :score, as: :radio_buttons,
+                collection: [["1", 1, { class: "one-star" }],
+                ['2', 2, { class: "two-stars" }],
+                ["3", 3, { class:"three-stars" } ],
+                ["4", 4, { class:"four-stars" } ],
+                ["5", 5, { class:"five-stars" } ],] %>
+              <%#= f.input :score, label: "Votre note de 0 à 5", step: "1", html5: true %>
+              <%= f.input :comment, label: "Donnez votre avis", as: :text, autofocus: true,
+                    :input_html => {rows: 5 }, html5: true %>
+              <%#= f.input :comment, label: "Votre avis", as: :rich_text_area, html5: true %>
+              <%= f.submit "Publier", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn-close-modal" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!-- Fin Modal -->
