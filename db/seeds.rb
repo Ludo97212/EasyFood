@@ -27,36 +27,39 @@ Category.create!(name: "Desserts")
 Category.create!(name: "Smoothies")
 Category.create!(name: "Cocktails")
 
-RECIPE = "INGRÉDIENTS / 6 PERS : <br>
-  500 g de farine <br>
-  250 ml d’eau <br>
-  20 g de levure boulangère fraîche <br>
-  50 ml de crème <br>
-  60 g de sucre <br>
-  275 g de beurre <br>
-  10 g de sel <br>
-  PRÉPARATION : <br>
-  1 h 30 min <br>
-  1.<br>
+RECIPE = "INGRÉDIENTS / 6 PERS : \r\n
+  500 g de farine \r\n
+  250 ml d’eau \r\n
+  20 g de levure boulangère fraîche \r\n
+  50 ml de crème \r\n
+  60 g de sucre \r\n
+  275 g de beurre \r\n
+  10 g de sel \r\n
+  PRÉPARATION : \r\n
+  1 h 30 min \r\n
+  1.\r\n
   Dans un cul-de-poule, verser l’eau, la crème, la levure, le sucre et la farine et mélangez à l’aide d’une maryse rigide. Incorporez le sel et 25 g de beurre. Sur le plan de travail à peine fariné, formez un rectangle de pâte, enveloppez-le dans un film alimentaire et réservez-le au frais pendant 12 heures.
-  <br>
-  2.<br>
+  \r\n
+  2.\r\n
   Étalez-la au rouleau pour obtenir un rectangle de 8 mm d’épaisseur. Entre deux feuilles de papier cuisson, étaler 250 g de beurre au rouleau à pâtisserie pour obtenir un rectangle de 8 mm d’épaisseur.
-  <br>
-  3.<br>
+  \r\n
+  3.\r\n
   Déposez-le au milieu de la pâte. Repliez les bords de la pâte vers le centre pour qu’ils recouvrent le beurre sans se croiser. Appuyez d’abord légèrement au rouleau à pâtisserie puis étalez la pâte en un rectangle. Pliez le en 3 : le tiers supérieur vers le milieu, le tiers inférieur par-dessus, pour le recouvrir complètement. Filmez et réservez au frais pendant 40 minutes.
-  <br>
-  4.<br>
+  \r\n
+  4.\r\n
   Déposez la pâte sur le plan de travail en vous assurant que l’ouverture sur le dessus se trouve vers la droite. Abaissez-la à nouveau en carré. Pliez chaque pointe vers le centre puis le carré obtenu en deux, sur lui-même. Placez le carré de pâte au réfrigérateur, filmé, pendant 40 minutes.
-  <br>
-  5.<br>
+  \r\n
+  5.\r\n
   Abaissez-le au rouleau jusqu’à 3 mm d’épaisseur. Coupez des rectangles de pâte de 6 x 15 cm. Dans chacun d’entre eux, coupez trois bandes de 2 x 15 cm. Tressez-les ensemble, trois par trois. Enroulez les tresses sur elles-mêmes et déposez-les dans des moules à muffin. Laissez lever pendant 1h à 1h30, à température ambiante.
-  <br>
-  6.<br>
+  \r\n
+  6.\r\n
   Préchauffez le four à 200° C. À l’aide d’un pinceau, badigeonnez les cruffins avec un jaune d’œuf battu et 2 cl de lait. Enfournez pour 20 à 25 minutes. Laissez refroidir sur une grille.
   "
 
 puts "Create foods"
+
+RATING = (2..5).to_a
+COMMENT = "J'ai testé la recette et franchement c'était pas mal. J'approuve !"
 
 pizza = Food.create!(name: "Pizza Lardons", recipe: RECIPE, category_id: Category.where(name: 'Pizzas').ids.first, user_id: User.first.id)
 file = File.open('app/assets/images/Pizza 2.jpg')
@@ -81,3 +84,12 @@ steak.photo.attach(io: file, filename: 'Steak.jpg', content_type: 'image/jpg')
 crunchy = Food.create!(name: "Crunchy aux fruits", recipe: RECIPE, category_id: Category.where(name: 'Desserts').ids.first, user_id: User.first.id)
 file = File.open('app/assets/images/Crunchy.jpg')
 crunchy.photo.attach(io: file, filename: 'Crunchy.jpg', content_type: 'image/jpg')
+
+15.times do
+  Rating.create!(score: RATING.sample, comment: COMMENT, user_id: User.first.id, food_id: pizza.id )
+  Rating.create!(score: RATING.sample, comment: COMMENT, user_id: User.first.id, food_id: burger.id )
+  Rating.create!(score: RATING.sample, comment: COMMENT, user_id: User.first.id, food_id: hot_dog.id )
+  Rating.create!(score: RATING.sample, comment: COMMENT, user_id: User.first.id, food_id: crepe.id )
+  Rating.create!(score: RATING.sample, comment: COMMENT, user_id: User.first.id, food_id: steak.id )
+  Rating.create!(score: RATING.sample, comment: COMMENT, user_id: User.first.id, food_id: crunchy.id )
+end

@@ -1,5 +1,4 @@
 <div class="details">
-
   <h2><%= @food.name %></h2>
 
   <% if @food.photo.attached? %>
@@ -10,35 +9,35 @@
 
   <h3>Recette</h3>
   <p><%= @food.recipe %></p>
+</div>
 
-  <div class="new-rating">
-    <%= simple_form_for [@food, @rating] do |f| %>
-      <%#= f.input :score, as: :radio_buttons,
-        collection: [['Good', '1', { class: "one-star" }],
-        ['Very Good', '2', { class: "two-stars" }],
-        ["Excellent", 3, { class:"three-stars" } ]] %>
-      <%= f.input :score, as: :float, label: "Votre note de 0 à 5", step: "0.5", html5: true %>
-      <%= f.input :comment, label: "Donnez votre avis", html5: true %>
-      <%#= f.input :comment, label: "Votre avis", as: :rich_text_area, html5: true %>
-      <%= f.submit "Publier", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+<div class="new-rating">
+  <%= simple_form_for [@food, @rating] do |f| %>
+    <%#= f.input :score, as: :radio_buttons,
+      collection: [['Good', '1', { class: "one-star" }],
+      ['Very Good', '2', { class: "two-stars" }],
+      ["Excellent", 3, { class:"three-stars" } ]] %>
+    <%= f.input :score, as: :float, label: "Votre note de 0 à 5", step: "0.5", html5: true %>
+    <%= f.input :comment, label: "Donnez votre avis", html5: true %>
+    <%#= f.input :comment, label: "Votre avis", as: :rich_text_area, html5: true %>
+    <%= f.submit "Publier", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
-  <!-- ADDITIONNAL CONTENT -->
-  <div class="display-ratings">
-    <h2>Note : <%= @avg_score %></h2>
-    <% @food.ratings.each do |rating| %>
-      <div class="card">
-        <span>
-          <i class="fas fa-quote-left" aria-hidden="true"></i>
-          <%= rating.comment %>
-          <i class="fas fa-quote-right" aria-hidden="true"></i>
-        </span>
-        [<%= rating.score  %>/5]
-        <%= rating.user.email %>
-      </div>
-    <% end %>
+<!-- ADDITIONNAL CONTENT -->
+<div class="display-ratings">
+  <h2>Note : <%= @avg_score %></h2>
+  <% @food.ratings.each do |rating| %>
+    <div class="card">
+      <span>
+        <i class="fas fa-quote-left" aria-hidden="true"></i>
+        <%= rating.comment %>
+        <i class="fas fa-quote-right" aria-hidden="true"></i>
+      </span>
+      [<%= rating.score  %>/5]
+      <%= rating.user.email %>
+    </div>
+  <% end %>
 
 
-  </div>
 </div>
