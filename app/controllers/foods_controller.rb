@@ -26,7 +26,7 @@ class FoodsController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = "name ILIKE :query OR description ILIKE :query"
+      sql_query = "name ILIKE :query OR recipe ILIKE :query"
       @foods = Food.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
       flash[:notice] = "#{@foods.size} résultat(s)"
     else

@@ -13,10 +13,12 @@
 
 <div class="new-rating">
   <%= simple_form_for [@food, @rating] do |f| %>
-    <%#= f.input :score, as: :radio_buttons,
-      collection: [['Good', '1', { class: "one-star" }],
-      ['Very Good', '2', { class: "two-stars" }],
-      ["Excellent", 3, { class:"three-stars" } ]] %>
+    <%= f.input :score, as: :radio_buttons,
+      collection: [["1", 1, { class: "one-star" }],
+      ['2', 2, { class: "two-stars" }],
+      ["3", 3, { class:"three-stars" } ],
+      ["4", 4, { class:"four-stars" } ],
+      ["5", 5, { class:"five-stars" } ],] %>
     <%= f.input :score, as: :float, label: "Votre note de 0 à 5", step: "0.5", html5: true %>
     <%= f.input :comment, label: "Donnez votre avis", html5: true %>
     <%#= f.input :comment, label: "Votre avis", as: :rich_text_area, html5: true %>

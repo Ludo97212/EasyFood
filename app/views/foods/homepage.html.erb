@@ -2,7 +2,7 @@
   <!-- Textes Défillants - Script JS TYped -->
   <h2><span class="element"></span></h2>
   <!--SEARCH FORM INDEX-FOODS WITH QUERY ON NAME, RECIPE, PRIORITY FOR NAME WITH STRONGER QUERIES-->
-  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+  <%= simple_form_for :search, url: foods_path, method: :get do |f| %>
     <div class="search-form-control form-group">
       <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Pizza, Burger..." />
       <button name="button" type="submit" class="btn btn-flat">
@@ -37,6 +37,7 @@
         <% end %>
         <div class="card-food-infos">
           <h3><%= link_to food.name, food_path(food) %></h3>
+          <p><%= food.ratings.average(:score).to_f.round(1) %></p>
           <%#= LATER, ADD RATING ON BOTTOM-RIGHT WITH STARS %>
         </div>
       </div>

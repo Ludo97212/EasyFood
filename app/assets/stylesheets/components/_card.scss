@@ -14,7 +14,7 @@
       opacity: 0.8;
     }
   }
-  a {
+  a, p {
     text-shadow: -1px 0 rgb(216, 158, 43), 0 1px rgb(216, 158, 43), 1px 0 rgb(216, 158, 43), 0 -1px rgb(216, 158, 43);
     font-size: 20px;
     font-weight: bold;
@@ -26,11 +26,6 @@
       color: rgb(216, 158, 43);
       text-shadow: -1px 0 rgb(231, 164, 62), 0 1px rgb(231, 164, 62), 1px 0 rgb(231, 164, 62), 0 -1px rgb(231, 164, 62);
     }
-  }
-  p {
-    font-size: 12px;
-    opacity: .7;
-    margin: 0;
   }
 }
 
