@@ -1,6 +1,6 @@
 .btn-close-modal {
-  color: white;
-  background: $blood;
+  color: $blood;
+  background: white;
   border: none;
   border-radius: 5px;
 }
@@ -23,10 +23,10 @@
 .btn-modal-new-rating {
   margin-top: 25px;
   color: white;
-  font-weight: 600;
-  background: #ffd000;
-  border: none;
-  border-radius: 15px;
+  font-weight: 500;
+  background: $blood;
+  border: 1px solid #4a0101;
+  border-radius: 5px;
   padding: 10px 25px;
   font-size: 20px;
   height: 50px;

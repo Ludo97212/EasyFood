@@ -1,24 +1,31 @@
 .details {
-  h2 {
-    color: $blood;
-    font-weight: bold;
-    margin-top: 30px;
+  .img-name {
     text-align: center;
-    font-size: 40px;
+    h2 {
+        color: $blood;
+        font-weight: bold;
+        margin-top: 30px;
+        font-size: 40px;
+      }
+      img {
+        border-radius: 5px;
+        width: 900px;
+        height: 600px;
+        object-fit: contain;
+      }
   }
   h3 {
     color: $blood;
     font-weight: bold;
   }
-  img {
-    border-radius: 5px;
-    width: 900px;
-    height: 600px;
-    margin: 25px 0px;
+  pre {
+    font-family: $body-font;
   }
 }
 
-
+.new-rating {
+  text-align: center;
+}
 
 
 // Smallest device
