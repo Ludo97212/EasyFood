@@ -1,8 +1,10 @@
 # require 'faker'
 
+Rating.destroy_all
+# Food.destroy_all
 # User.destroy_all
 # Category.destroy_all
-# Food.destroy_all
+
 
 # # USER
 # puts "Create an user"
@@ -66,8 +68,8 @@ RECIPE = "INGRÉDIENTS / 6 PERS :
 
 # puts "Create foods"
 
-# RATING = (2..5).to_a
-# COMMENT = "J'ai testé la recette et franchement c'était pas mal. J'approuve !"
+RATING = (2..5).to_a
+COMMENT = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nunc tortor, euismod in ex vitae, hendrerit posuere ante. Aenean eleifend lorem sem. Aenean leo sem, tristique eu pharetra sed, ultricies faucibus sapien. Mauris commodo nunc et odio facilisis, ut auctor risus sodales. Nullam sagittis euismod ex, eget accumsan neque efficitur sit amet. Nunc maximus, mi eu cursus luctus, erat turpis convallis eros, at semper tortor erat eget nibh. Etiam molestie odio facilisis, faucibus elit in."
 
 # pizza = Food.create!(name: "Pizza Lardons", recipe: RECIPE, category_id: Category.where(name: 'Pizzas').ids.first, user_id: User.first.id)
 # file = File.open('app/assets/images/Pizza 2.jpg')
@@ -102,8 +104,11 @@ RECIPE = "INGRÉDIENTS / 6 PERS :
 #   Rating.create!(score: RATING.sample, comment: COMMENT, user_id: User.first.id, food_id: crunchy.id )
 # end
 
-# FOODS = Food.all
-# FOODS.each do |food|
-#   food.recipe = RECIPE
-#   food.save!
-# end
+FOODS = Food.all
+FOODS.each do |food|
+  # food.recipe = RECIPE
+  6.times do
+    Rating.create!(score: RATING.sample, comment: COMMENT, user_id: User.first.id, food_id: food.id )
+  end
+  food.save!
+end

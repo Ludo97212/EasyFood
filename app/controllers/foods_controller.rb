@@ -38,7 +38,7 @@ class FoodsController < ApplicationController
     set_food
     # create a rating on this show
     @rating = Rating.new
-    @f_ratings = @food.ratings
+    @f_ratings = @food.ratings.order(updated_at: :desc)
     # ------------AVG SCORE------------------------------- #
     # Round(1) == Garder 1 chifffre apres la virgule
     @avg_score = @f_ratings.average(:score).to_f.round(1)

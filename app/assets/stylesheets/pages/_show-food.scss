@@ -9,8 +9,8 @@
       }
       img {
         border-radius: 5px;
-        width: 900px;
-        height: 600px;
+        // width: 900px;
+        // height: 600px;
         object-fit: contain;
       }
   }
@@ -18,8 +18,9 @@
     color: $blood;
     font-weight: bold;
   }
-  pre {
+  p {
     font-family: $body-font;
+    font-size: 18px;
   }
 }
 

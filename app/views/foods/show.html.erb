@@ -9,7 +9,7 @@
   </section>
 
   <h3>Recette</h3>
-  <pre><%= @food.recipe %></pre>
+  <pre><p><%= @food.recipe %></p></pre>
 </section>
 
 <section class="new-rating">
@@ -19,22 +19,25 @@
 </section>
 
 <!-- ADDITIONNAL CONTENT -->
-<div class="display-ratings">
+<section class="display-ratings">
   <h2>Note : <%= @avg_score %></h2>
-  <% @food.ratings.each do |rating| %>
-    <div class="card">
+  <% @f_ratings.each do |rating| %>
+    <div class="card-comment">
       <span>
         <i class="fas fa-quote-left" aria-hidden="true"></i>
         <%= rating.comment %>
         <i class="fas fa-quote-right" aria-hidden="true"></i>
       </span>
-      [<%= rating.score  %>/5]
-      <%= rating.user.email %>
+      <span>
+        <strong><%= rating.score  %> / 5
+        <i class="fa fa-star"></i></strong>
+        <i><%= rating.user.email %></i>
+      </span>
+
+
     </div>
   <% end %>
-
-
-</div>
+</section>
 
 
 
@@ -59,7 +62,7 @@
                 ["5", 5, { class:"five-stars", label: "test" } ],] %>
               <%#= f.input :score, label: "Votre note de 0 à 5", step: "1", html5: true %>
               <%= f.input :comment, label: "Votre avis", as: :text, autofocus: true,
-                    :input_html => {rows: 5 }, html5: true %>
+                    :input_html => {rows: 10 }, html5: true %>
               <%#= f.input :comment, label: "Votre avis", as: :rich_text_area, html5: true %>
               <%= f.submit "Publier", class: "btn btn-primary" %>
             <% end %>

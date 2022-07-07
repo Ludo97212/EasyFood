@@ -27,56 +27,36 @@
 // ----------------------------------------- //
 
 .form-new-recipe {
-  .form-check {
-    // input {
-    //   display: none;
-    //   color: pink;
-    //   &:checked {
-    //     background: red;
-    //   }
-    // }
-    // label {
-    //   background-color: $gold;
-    //   color: white;
-    //   text-align: center;
-    //   padding: 2px auto;
-    //   width: 50px;
-    //   font-weight: bold;
-    //   border-radius: 3px;
-    //   &:hover {
-    //     background-color: pink;
-    //   }
-    // }
-
   fieldset {
-    display: flex;
+      display: flex;
   }
 
-  label {
-    border-radius: 7px;
-    margin: 0px;
-    background-color: $gold;
-    color: white;
-    padding: 20px auto;
-    width: 50px;
-    font-size: 20px;
-    text-align: center;
-    font-weight: bold;
-    &:hover {
-      background-color: rgb(231, 231, 141);
+  .form-check {
+    label {
+      border-radius: 7px;
+      margin: 0px;
+      background-color: $gold;
+      color: white;
+      padding: 20px auto;
+      width: 50px;
+      font-size: 20px;
+      text-align: center;
+      font-weight: bold;
+      &:hover {
+        background-color: rgb(231, 231, 141);
+      }
     }
-  }
 
-  input {
-    display: none;
-    &:checked {
-      &+label {
-        background: $olive;
-        &:before {
+    input {
+      display: none;
+      &:checked {
+        &+label {
           background: $olive;
+          &:before {
+            background: $olive;
+          }
         }
       }
     }
-  }
   }
 }
