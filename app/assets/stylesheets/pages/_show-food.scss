@@ -1,6 +1,8 @@
 .details {
+  margin-bottom: 40px;
   .img-name {
     text-align: center;
+    margin-bottom: 40px;
     h2 {
         color: $blood;
         font-weight: bold;
@@ -8,10 +10,11 @@
         font-size: 40px;
       }
       img {
+        margin-top: 20px;
         border-radius: 5px;
         // width: 900px;
         // height: 600px;
-        object-fit: contain;
+        object-fit: cover;
       }
   }
   h3 {
@@ -26,6 +29,14 @@
 
 .new-rating {
   text-align: center;
+}
+
+.display-ratings {
+  margin-top: 40px;
+  h2 {
+    color: $blood;
+    font-weight: bold;
+  }
 }
 
 
