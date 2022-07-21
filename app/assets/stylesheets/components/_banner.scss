@@ -1,4 +1,12 @@
 .banner {
+  // OverRide the width limit of container
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  //
   background-size: cover;
   background-image: linear-gradient(rgba(120, 120, 120, 0.2), rgba(120, 120, 120, 0.2)), url('Banner world-in-food.jpg');
   padding: 30px 10px;
