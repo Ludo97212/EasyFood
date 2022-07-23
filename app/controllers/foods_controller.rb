@@ -21,7 +21,6 @@ class FoodsController < ApplicationController
   end
 
   def show
-    set_food
     # create a rating on this show
     @rating = Rating.new
     @f_ratings = @food.ratings.order(updated_at: :desc).limit(10)
@@ -36,15 +35,37 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
+    if @food.save
+      redirect_to food_path
+      flash.notice "Votre recette a bien été créée."
+    else
+      render :new
+      flash.now.notice "Erreur! Veuillez réessayer"
+    end
   end
 
   def edit
   end
 
   def update
+    @food = Food.update(food_params)
+    if @food.update
+      redirect_to food_path
+      flash.notice "Votre recette a bien été modifiée."
+    else
+      render :edit
+      flash.now.notice "Erreur! Veuillez réessayer"
+    end
   end
 
   def delete
+    if @food.destroy
+      redirect_to foods_path
+      flash.notice "Recette supprimée"
+    else
+      redirect_to food_path
+      flash.now.notice "Erreur! Impossible de supprimer cette recette"
+    end
   end
 
    private
