@@ -12,11 +12,12 @@ class FoodsController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = "name ILIKE :query OR recipe ILIKE :query"
+      sql_query = "name ILIKE :query"
       @foods = Food.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
-      flash[:notice] = "#{@foods.size} résultat(s)"
+      flash[:success] = "#{@foods.size} résultat(s)"
     else
-      @foods = Food.all.order(:created_at)
+      @foods = Food.all.limit(10)
+      flash[:notice] = "Aucun résultat. Essayez autre chose"
     end
   end
 
@@ -37,10 +38,10 @@ class FoodsController < ApplicationController
     @food = Food.new(food_params)
     if @food.save
       redirect_to food_path
-      flash.notice "Votre recette a bien été créée."
+      flash[:notice] = "Votre recette a bien été créée."
     else
       render :new
-      flash.now.notice "Erreur! Veuillez réessayer"
+      flash.now[:notice] = "Erreur! Veuillez réessayer"
     end
   end
 
@@ -51,20 +52,20 @@ class FoodsController < ApplicationController
     @food = Food.update(food_params)
     if @food.update
       redirect_to food_path
-      flash.notice "Votre recette a bien été modifiée."
+      flash[:notice] = "Votre recette a bien été modifiée."
     else
       render :edit
-      flash.now.notice "Erreur! Veuillez réessayer"
+      flash.now[:notice] = "Erreur! Veuillez réessayer"
     end
   end
 
   def delete
     if @food.destroy
       redirect_to foods_path
-      flash.notice "Recette supprimée"
+      flash[:notice] = "Recette supprimée"
     else
       redirect_to food_path
-      flash.now.notice "Erreur! Impossible de supprimer cette recette"
+      flash.now[:notice] = "Erreur! Impossible de supprimer cette recette"
     end
   end
 
